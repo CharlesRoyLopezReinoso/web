@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plataforma de Gestión OpenAQ</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <div class="app-layout">
+    
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <i class="fas fa-bars"></i>
+      </div>
+      <nav class="sidebar-nav">
+        <a href="#" class="active"><i class="fas fa-th-large"></i> Dashboard</a>
+        <a href="#"><i class="fas fa-chart-line"></i> Gráfico en línea</a>
+        <a href="#"><i class="fas fa-address-card"></i> Tarjetas del IoT</a>
+        <a href="#"><i class="fas fa-chart-bar"></i> Valores actuales</a>
+        <a href="#"><i class="fas fa-table"></i> Tablas de datos</a>
+        <a href="#"><i class="fas fa-exclamation-triangle"></i> Alertas Activas</a>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      
+      <header class="topbar">
+        <h1>Plataforma de Gestión y Monitoreo Ambiental OpenAQ</h1>
+        <div class="user-profile">
+          <i class="fas fa-bell"></i>
+          <i class="fas fa-user-circle"></i>
+        </div>
+      </header>
+
+      <div class="dashboard-grid">
+        
+        <div class="left-column">
+          
+          <div class="kpi-row">
+            <div class="kpi-card">
+              <span>Total de Dispositivos (Wokwi Sim.)</span>
+              <h2>145</h2>
+            </div>
+            <div class="kpi-card">
+              <span>Promedio Global del Aire</span>
+              <h2 class="text-success">52 <small>índice</small></h2>
+            </div>
+            <div class="kpi-card">
+              <span>Alertas Activas (Ref: <i class="fas fa-satellite-dish"></i>)</span>
+              <h2 class="text-danger"><i class="fas fa-exclamation-triangle"></i> 0</h2>
+            </div>
+          </div>
+
+          <div class="map-container">
+            <div class="map-placeholder">
+              <p><i class="fas fa-map-marked-alt"></i> El mapa interactivo se renderizará aquí</p>
+            </div>
+          </div>
+
+          <div class="table-container">
+            <div class="table-header">
+              <h3>TABLA DE DISPOSITIVOS IoT (WOKWI)</h3>
+              <input type="text" placeholder="Filtra por ubicación...">
+            </div>
+            <div class="table-responsive">
+              <table>
+                <thead>
+                  <tr>
+                    <th>Device ID</th>
+                    <th>Ubicación</th>
+                    <th>Sensor</th>
+                    <th>Última Transmisión</th>
+                    <th>Estado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>WOKWI_ESP32_01</td>
+                    <td>Quito, Ecuador</td>
+                    <td>DHT22</td>
+                    <td>09/07/2026 10:32:11</td>
+                    <td><span class="status-dot active"></span> Activo</td>
+                  </tr>
+                  <tr>
+                    <td>WOKWI_ESP32_02</td>
+                    <td>Quevedo, Ecuador</td>
+                    <td>DHT22 + MQ135</td>
+                    <td>09/07/2026 11:32:15</td>
+                    <td><span class="status-dot active"></span> Activo</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <aside class="right-panel">
+          <div class="panel-header">
+            <h3>DETALLES DE LA UBICACIÓN</h3>
+            <i class="fas fa-times" style="cursor: pointer;"></i>
+          </div>
+          <div class="panel-content">
+            <div class="info-group">
+              <h4>UBICACIÓN:</h4>
+              <p>Quevedo, Ecuador<br><small>Simulación Wokwi (Ref: ESP32_02)</small></p>
+            </div>
+            <div class="info-group">
+              <h4>PROVEEDOR:</h4>
+              <p>Red Nacional de Aire</p>
+            </div>
+            <div class="info-group">
+              <h4>TIPO DE ESTACIÓN:</h4>
+              <p>Nodo IoT (Simulado)</p>
+            </div>
+            <div class="info-group">
+              <h4>SENSORES DISPONIBLES:</h4>
+              <ul>
+                <li>Temperatura (DHT22)</li>
+                <li>Humedad (DHT22)</li>
+                <li>Calidad del Aire (Multi)</li>
+              </ul>
+            </div>
+            <div class="charts-group">
+              <h4>GRÁFICOS RESUMIDOS (Histórico 24h):</h4>
+              <div class="chart-placeholder">Gráfico de Temperatura</div>
+              <div class="chart-placeholder">Gráfico de Humedad</div>
+              <div class="chart-placeholder">Gráfico de Calidad del Aire</div>
+            </div>
+          </div>
+        </aside>
+
+      </div>
+    </main>
+  </div>
+</body>
+</html>

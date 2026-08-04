@@ -1,63 +1,16 @@
-# Plataforma de Gestión y Monitoreo Ambiental OpenAQ
+# React + Vite
 
-Este proyecto consiste en una interfaz web tipo dashboard para la gestión y supervisión de datos ambientales, inspirada en la integración de sensores IoT y plataformas de monitoreo como OpenAQ. La vista está diseñada para presentar información clave de dispositivos simulados, ubicaciones, estado de sensores y métricas ambientales de forma clara y organizada.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Descripción del proyecto
+Currently, two official plugins are available:
 
-La aplicación muestra una interfaz moderna y funcional con:
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-- un panel lateral de navegación,
-- tarjetas de indicadores clave (KPI),
-- una vista de mapa en desarrollo,
-- una tabla con dispositivos IoT simulados,
-- y un panel lateral con detalles de ubicación y sensores disponibles.
+## React Compiler
 
-Este prototipo está orientado a representar la experiencia de usuario de una plataforma de monitoreo ambiental, con enfoque en la visualización de datos en tiempo real o simulados.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-## Funcionalidades principales
+## Expanding the ESLint configuration
 
-- Diseño de dashboard administrativo y visual.
-- Sidebar con accesos rápidos a secciones como Dashboard, Gráficos, Tarjetas IoT, Alertas y Tablas.
-- Tarjetas de resumen con métricas ambientales y estado de dispositivos.
-- Tabla de dispositivos simulados con ubicación, sensor, última transmisión y estado.
-- Panel lateral con información detallada de estaciones o nodos IoT.
-- Estilo responsive y visualmente limpio mediante CSS personalizado.
-
-## Tecnologías utilizadas
-
-- HTML5
-- CSS3
-- Font Awesome para iconografía
-
-## Estructura del proyecto
-
-```text
-web/
-├── index.html
-├── css/
-│   └── styles.css
-└── README.md
-```
-
-## Cómo ejecutar el proyecto
-
-No requiere instalación de dependencias.
-
-1. Descarga o clona este repositorio.
-2. Abre el archivo `index.html` en tu navegador.
-3. También puedes usar un servidor local simple para visualizarlo de forma más cómoda.
-
-## Estado del proyecto
-
-Este proyecto representa una primera versión de interfaz visual para una plataforma de monitoreo ambiental. Actualmente incluye una estructura de dashboard estática con datos simulados y una base visual lista para expandirse con mapas interactivos, gráficos dinámicos y conexión a APIs reales.
-
-## Próximos pasos
-
-- Integrar un mapa interactivo real.
-- Agregar gráficos dinámicos de temperatura, humedad y calidad del aire.
-- Conectar la interfaz con datos reales de sensores o una API externa.
-- Mejorar la experiencia responsive y accesibilidad.
-
-## Autor
-
-Proyecto desarrollado como ejemplo de interfaz web para monitoreo ambiental y gestión de datos IoT.
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.

@@ -1,0 +1,224 @@
+:root {
+  --sidebar-bg: #111f2d;
+  --sidebar-hover: #164e63;
+  --sidebar-active: #0f766e;
+  --main-bg: #f3f4f6;
+  --primary: #14b8a6;
+  --text-dark: #1f2937;
+  --text-light: #6b7280;
+  --white: #ffffff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: var(--main-bg);
+  color: var(--text-dark);
+}
+
+/* Layout Principal */
+.app-layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  background-color: var(--sidebar-bg);
+  color: var(--white);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar-header {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo-badge {
+  background-color: var(--primary);
+  color: white;
+  font-weight: bold;
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.sidebar-nav a {
+  color: #9ca3af;
+  text-decoration: none;
+  padding: 15px 25px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.sidebar-nav a:hover {
+  background-color: var(--sidebar-hover);
+  color: white;
+}
+
+.sidebar-nav a.active {
+  background-color: var(--sidebar-active);
+  color: white;
+  border-radius: 0 20px 20px 0;
+  margin-right: 20px;
+}
+
+.sidebar-footer {
+  padding: 20px;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+/* Contenido Principal */
+.main-content {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+}
+
+/* Hero Banner (Verde) */
+.hero-banner {
+  background: linear-gradient(to right, #0f766e, #14b8a6);
+  border-radius: 12px;
+  padding: 25px 30px;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.hero-banner h1 {
+  font-size: 1.5rem;
+  margin-bottom: 5px;
+}
+
+.hero-banner p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+.badge-active {
+  background-color: rgba(255, 255, 255, 0.2);
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+/* Tabla */
+.table-container {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.table-container h2 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.table-container p {
+  color: var(--text-light);
+  font-size: 0.9rem;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  text-align: left;
+  padding: 12px;
+  border-bottom: 2px solid #e5e7eb;
+  color: var(--text-light);
+  font-size: 0.8rem;
+  text-transform: uppercase;
+}
+
+td {
+  padding: 15px 12px;
+  border-bottom: 1px solid #f3f4f6;
+  font-size: 0.9rem;
+}
+
+.btn-link {
+  background-color: #d1fae5;
+  color: #065f46;
+  padding: 6px 12px;
+  border-radius: 15px;
+  text-decoration: none;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* =========================================
+   DISEÑO RESPONSIVO (Móvil y Tablet)
+   ========================================= */
+@media (max-width: 768px) {
+  .app-layout {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+  }
+
+  .sidebar-header {
+    padding: 0;
+  }
+
+  .sidebar-nav {
+    flex-direction: row;
+    margin-top: 0;
+  }
+
+  .sidebar-nav a {
+    padding: 10px;
+    font-size: 0.9rem;
+  }
+
+  .sidebar-nav a.active {
+    border-radius: 8px;
+    margin-right: 0;
+  }
+
+  .sidebar-footer {
+    display: none; /* Ocultamos el pie de página del menú en móviles para ahorrar espacio */
+  }
+
+  .main-content {
+    padding: 15px;
+  }
+
+  .hero-banner {
+    flex-direction: column;
+    text-align: center;
+    gap: 15px;
+  }
+
+  .table-responsive {
+    overflow-x: auto; /* Permite deslizar la tabla hacia los lados si es muy ancha */
+  }
+}

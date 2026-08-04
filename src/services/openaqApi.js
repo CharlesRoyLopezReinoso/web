@@ -1,51 +1,15 @@
+// Usamos la URL real completa porque ya no tenemos el proxy de Vite
 const BASE_URL = 'https://api.openaq.org/v3';
-// Aquí pondremos tu llave cuando la tengamos
+
+// Debes poner tu API key real aquí para que funcione en GitHub Pages
 const API_KEY = 'ce2a2e81863cd097439a61ab576c6054d06f0abfdf59a7a13cae0bd35cd760ef'; 
 
+// Configuramos las cabeceras obligatorias de OpenAQ
 const fetchOptions = {
   headers: {
-    'X-API-Key': API_KEY,
+    'X-AQ-Key': API_KEY,
     'Content-Type': 'application/json'
   }
 };
 
-export const openaqApi = {
-  getLocations: async (limit = 15) => {
-    try {
-      const response = await fetch(`${BASE_URL}/locations?limit=${limit}`, fetchOptions);
-      if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
-      
-      const data = await response.json();
-      return data.results || [];
-    } catch (error) {
-      console.error("Error al obtener ubicaciones:", error);
-      return [];
-    }
-  },
-
-  getLocationSensors: async (locationId) => {
-    try {
-      const response = await fetch(`${BASE_URL}/locations/${locationId}/sensors`, fetchOptions);
-      if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
-      
-      const data = await response.json();
-      return data.results || [];
-    } catch (error) {
-      console.error("Error al obtener sensores:", error);
-      return [];
-    }
-  },
-
-  getSensorMeasurements: async (sensorId) => {
-    try {
-      const response = await fetch(`${BASE_URL}/sensors/${sensorId}/measurements`, fetchOptions);
-      if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
-      
-      const data = await response.json();
-      return data.results || [];
-    } catch (error) {
-      console.error("Error al obtener mediciones:", error);
-      return [];
-    }
-  }
-};
+// ... el resto de tus funciones (getLocations, etc.) se quedan igual

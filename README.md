@@ -1,16 +1,25 @@
-# React + Vite
+# 🌍 Plataforma de Monitoreo Ambiental - OpenAQ
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white) ![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
 
-Currently, two official plugins are available:
+Este proyecto es un Dashboard interactivo desarrollado en **React** que permite consultar el estado general, sensores y mediciones ambientales en tiempo real utilizando la API pública de **OpenAQ (v3)**. 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Desarrollado como proyecto aplicativo de programación web.
 
-## React Compiler
+## 🚀 Características Principales
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+* **Arquitectura Moderna:** Construido con React y Vite para un entorno de desarrollo rápido y optimizado.
+* **Enrutamiento Dinámico:** Navegación por niveles estructurada con `react-router-dom`:
+  * `/locations` ➔ Muestra las estaciones a nivel global.
+  * `/locations/:locationId/sensors` ➔ Lista los sensores de una estación específica.
+  * `/sensors/:sensorId/measurements` ➔ Despliega el historial de mediciones de un sensor (Ej: PM2.5, Ozono, Temperatura).
+* **Capa de Servicios Separada:** Conexión modular a la API de OpenAQ v3, con configuración de Proxy en Vite para omitir restricciones CORS y manejo seguro de API Keys mediante cabeceras HTTP.
+* **Diseño Responsivo:** Interfaz adaptable a computadoras, tablets y dispositivos móviles usando CSS3 puro y Media Queries.
+* **Tolerancia a Fallos:** Renderizado condicional implementado para evitar bloqueos de la aplicación ante la eventualidad de nodos IoT inactivos en los servidores de OpenAQ.
 
-## Expanding the ESLint configuration
+## 🛠️ Tecnologías Utilizadas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+* **Frontend:** React.js (Componentes funcionales, Hooks como `useState`, `useEffect`, `useParams`)
+* **Enrutador:** React Router DOM (v6)
+* **Empaquetador:** Vite
+* **Despliegue Continuo:** GitHub Pages

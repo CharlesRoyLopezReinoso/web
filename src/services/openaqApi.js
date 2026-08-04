@@ -1,17 +1,13 @@
-const BASE_URL = 'https://corsproxy.io/?https://api.openaq.org/v3';
+const BASE_URL = 'https://api.openaq.org/v3';
+const API_KEY = 'ce2a2e81863cd097439a61ab576c6054d06f0abfdf59a7a13cae0bd35cd760ef';
 
-const API_KEY = 'ce2a2e81863cd097439a61ab576c6054d06f0abfdf59a7a13cae0bd35cd760ef'; // Tu API Key real
-
-const fetchOptions = {
-  headers: {
-    'X-AQ-Key': API_KEY,
-    'Content-Type': 'application/json'
-  }
-};
 export const openaqApi = {
   getLocations: async (limit = 15) => {
     try {
-      const response = await fetch(`${BASE_URL}/locations?limit=${limit}`, fetchOptions);
+      // Usamos un proxy alternativo y mandamos la API Key en la URL con &api_key=
+      const targetUrl = `${BASE_URL}/locations?limit=${limit}&api_key=${API_KEY}`;
+      const response = await fetch(`https://corsproxy.io/?${encodeURIComponent(targetUrl)}`);
+      
       if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
       
       const data = await response.json();
@@ -24,7 +20,9 @@ export const openaqApi = {
 
   getLocationSensors: async (locationId) => {
     try {
-      const response = await fetch(`${BASE_URL}/locations/${locationId}/sensors`, fetchOptions);
+      const targetUrl = `${BASE_URL}/locations/${locationId}/sensors?api_key=${API_KEY}`;
+      const response = await fetch(`https://corsproxy.io/?${encodeURIComponent(targetUrl)}`);
+      
       if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
       
       const data = await response.json();
@@ -37,7 +35,9 @@ export const openaqApi = {
 
   getSensorMeasurements: async (sensorId) => {
     try {
-      const response = await fetch(`${BASE_URL}/sensors/${sensorId}/measurements`, fetchOptions);
+      const targetUrl = `${BASE_URL}/sensors/${sensorId}/measurements?api_key=${API_KEY}`;
+      const response = await fetch(`https://corsproxy.io/?${encodeURIComponent(targetUrl)}`);
+      
       if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
       
       const data = await response.json();

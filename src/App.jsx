@@ -8,7 +8,7 @@ import './App.css';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/web/">
       <div className="app-layout">
         <Sidebar />
         <main className="main-content">

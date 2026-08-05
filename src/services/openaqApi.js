@@ -1,15 +1,18 @@
-const BASE_URL = 'https://api.openaq.org/v3';
+const BASE_URL = '/web/api';
 const API_KEY = 'ce2a2e81863cd097439a61ab576c6054d06f0abfdf59a7a13cae0bd35cd760ef';
+
+const fetchOptions = {
+  headers: {
+    'X-API-Key': API_KEY, // ¡El error estaba aquí! Era X-API-Key
+    'Content-Type': 'application/json'
+  }
+};
 
 export const openaqApi = {
   getLocations: async (limit = 15) => {
     try {
-      // Usamos un proxy alternativo y mandamos la API Key en la URL con &api_key=
-      const targetUrl = `${BASE_URL}/locations?limit=${limit}&api_key=${API_KEY}`;
-      const response = await fetch(`https://corsproxy.io/?${encodeURIComponent(targetUrl)}`);
-      
+      const response = await fetch(`${BASE_URL}/locations?limit=${limit}`, fetchOptions);
       if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
-      
       const data = await response.json();
       return data.results || [];
     } catch (error) {
@@ -20,11 +23,8 @@ export const openaqApi = {
 
   getLocationSensors: async (locationId) => {
     try {
-      const targetUrl = `${BASE_URL}/locations/${locationId}/sensors?api_key=${API_KEY}`;
-      const response = await fetch(`https://corsproxy.io/?${encodeURIComponent(targetUrl)}`);
-      
+      const response = await fetch(`${BASE_URL}/locations/${locationId}/sensors`, fetchOptions);
       if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
-      
       const data = await response.json();
       return data.results || [];
     } catch (error) {
@@ -35,11 +35,8 @@ export const openaqApi = {
 
   getSensorMeasurements: async (sensorId) => {
     try {
-      const targetUrl = `${BASE_URL}/sensors/${sensorId}/measurements?api_key=${API_KEY}`;
-      const response = await fetch(`https://corsproxy.io/?${encodeURIComponent(targetUrl)}`);
-      
+      const response = await fetch(`${BASE_URL}/sensors/${sensorId}/measurements`, fetchOptions);
       if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
-      
       const data = await response.json();
       return data.results || [];
     } catch (error) {

@@ -1,5 +1,5 @@
 const BASE_URL = '/web/api';
-const API_KEY = 'ce2a2e81863cd097439a61ab576c6054d06f0abfdf59a7a13cae0bd35cd760ef';
+const API_KEY = import.meta.env.VITE_OPENAQ_API_KEY;
 
 const fetchOptions = {
   headers: {

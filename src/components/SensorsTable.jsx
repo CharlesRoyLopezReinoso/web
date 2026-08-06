@@ -9,6 +9,13 @@ export default function SensorsTable({ sensors = [] }) {
     );
   }
 
+  // Pequeña función para garantizar que la fecha sea válida antes de imprimirla
+  const formatErrorSafeDate = (dateString) => {
+    if (!dateString) return 'Sin registro';
+    const date = new Date(dateString);
+    return isNaN(date.getTime()) ? 'Sin registro' : date.toLocaleString();
+  };
+
   return (
     <div className="table-responsive">
       <table>
@@ -28,10 +35,8 @@ export default function SensorsTable({ sensors = [] }) {
                 {sensor.parameter?.name || 'Desconocido'} ({sensor.parameter?.units || '-'})
               </td>
               <td>
-                {/* Aquí está la magia que repara el error */}
-                {sensor.latest?.datetime 
-                  ? new Date(sensor.latest.datetime).toLocaleString() 
-                  : 'Sin registro'}
+                {/* Usamos nuestra nueva función segura */}
+                {formatErrorSafeDate(sensor.latest?.datetime)}
               </td>
               <td>
                 <Link to={`/sensors/${sensor.id}/measurements`} className="btn-link">
